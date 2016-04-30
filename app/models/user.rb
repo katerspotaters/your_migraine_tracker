@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   validate :validate_username
-end
+
 
     def self.find_first_by_auth_conditions(warden_conditions)
       conditions = warden_conditions.dup
@@ -24,3 +24,12 @@ end
          errors.add(:username, :invalid)
        end
      end
+
+     def login=(login)
+       @login = login
+     end
+
+     def login
+       @login || self.username || self.email
+     end
+end
