@@ -8,14 +8,44 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <nav class="navbar navbar-default">
+    <div class="container">
+       <ul class="nav nav-tabs">
+         <% if user_signed_in? %>
+         <li><%= link_to "Home", welcome_index_path %></li>
+         <li><%= link_to "About", welcome_about_path %></li>
+         <li><%= link_to "Log Out", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
+         <% else %>
+         <li><%= link_to "Sign Up", new_user_registration_path, :class => 'navbar-link'  %></li>
+          <li><%= link_to "Log in", new_user_session_path, :class => 'navbar-link'  %></li>
+         <li><%= link_to "Home", welcome_index_path %></li>
+         <li><%= link_to "About", welcome_about_path %></li>
+         <% end %>
+       </ul>
+    </div>
+  </nav>
   <div class="container">
-     <ul class="nav nav-tabs">
-       <li><%= link_to "Sign Up", new_user_registration_path, :class => 'navbar-link'  %></li>
-            <li><%= link_to "Sign In", new_user_session_path, :class => 'navbar-link'  %></li>
-       <li><%= link_to "Home", welcome_index_path %></li>
-       <li><%= link_to "About", welcome_about_path %></li>
-     </ul>
-<%= yield %>
+
+  <div class="flash">
+    <% if flash[:notice] %>
+      <div class="alert alert-success">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <%= flash[:notice] %>
+      </div>
+    <% elsif flash[:error] %>
+      <div class="alert alert-danger">
+        <button type="button" class="close" data-dimsiss="alert">&times;</button>
+        <%= flash[:error] %>
+      </div>
+    <% elsif flash[:alert] %>
+      <div class="alert alert-warning">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <%= flash[:alert] %>
+      </div>
+    <% end %>
+   </div>
+    <%= yield %>
   </div>
+
 </body>
 </html>
