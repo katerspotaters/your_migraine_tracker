@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   validate :validate_username
+  has_many :medications
 
 
     def self.find_first_by_auth_conditions(warden_conditions)

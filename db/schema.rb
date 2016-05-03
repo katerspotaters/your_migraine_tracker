@@ -11,7 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160430225919) do
+ActiveRecord::Schema.define(version: 20160502224322) do
+
+  create_table "medications", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "dosage_amount"
+    t.string   "dosage_measurement"
+    t.integer  "frequency_amount"
+    t.string   "frequency_measurement"
+    t.integer  "user_id"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  add_index "medications", ["user_id"], name: "index_medications_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
