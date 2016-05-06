@@ -21,15 +21,15 @@
   </div>
   <div class="form-group">
     <%= f.label :dosage_measurement %>
-    <%= f.select(:dosage_measurement, options_for_select([['mg', 'mg'], ['ml', 'ml']])]) %>
+    <%= f.select(:dosage_measurement, options_for_select([['mg', 'mg'], ['ml', 'ml']])) %>
   </div>
   <div class="form-group">
     <%= f.label :frequency_amount %>
-    <%= f.number_field :frequency_amount, class: 'form-control', placeholder: "Enter your frequency here! Ex) 2 pills" %>
-    </div>
-    <div class="form-group">
-      <%= f.label :frequency_measurement %>
-      <%= f.select(:frequency_measurement, options_for_select([['every four hours', 'every four hours'], ['every six hours', 'every six hours'], ['every eight hours', 'every eight hours'], ['every twelve hours', 'every twelve hours'], ['per day', 'per day'], ['per week', 'per week'], ['per month', 'per month'], ['every three months', 'every three months'], ['at night', 'at night'], ['in the morning', 'in the morning']))
+    <%= f.text_field :frequency_amount, class: 'form-control', placeholder: "Enter your frequency here! Ex) 2 pills" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :frequency_measurement %>
+    <%= f.select(:frequency_measurement, options_for_select([['every four hours', 'every four hours'], ['every six hours', 'every six hours'], ['every eight hours', 'every eight hours'], ['every twelve hours', 'every twelve hours'], ['per day', 'per day'], ['per week', 'per week'], ['per month', 'per month'], ['every three months', 'every three months'], ['at night', 'at night'], ['in the morning', 'in the morning']])) %>
   <div class="actions">
     <%= f.submit %>
   </div>

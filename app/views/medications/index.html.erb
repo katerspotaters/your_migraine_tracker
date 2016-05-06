@@ -1,25 +1,15 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Listing Medications</h1>
+<div class="row">
+  <div class="col-md-8">
+    <div class="media">
+      <div class="media-body">
+        <h4 class "media-heading">
+          <%= link_to 'Show all', medication_path %>
+          <%= link_to 'New', new_medication_path %>
+          <%= link_to 'Edit', edit_medication_path(medication)%>
+          <%= link_to 'Delete', medication, method: :delete, data:  { confirm: 'Are you sure you want to delete this medication?' } %>
+        </div>
+      </div>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @medication.each do |medication| %>
-      <tr>
-        <td><%= link_to 'Show', medication %></td>
-        <td><%= link_to 'Edit', edit_medication_path(medication) %></td>
-        <td><%= link_to 'Destroy', medication, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Medication', new_medication_path %>
+    </div>
+  </div>

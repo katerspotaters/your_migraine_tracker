@@ -1,0 +1,21 @@
+<div class="row">
+  <div class="col-md-8">
+    <div class="media">
+      <br />
+      <% avatar_url = @user.avatar_url(128) %>
+      <% if avatar_url %>
+        <div class="media-left">
+          <%= image_tag avatar_url, class: 'media-object' %>
+        </div>
+      <% end %>
+      <div class="media-body">
+        <h2 class="media-heading"><%= @user.name %></h2>
+        <small>
+          <%= pluralize(@user.medications.count, 'post') %>,
+        </small>
+      </div>
+    </div>
+  </div>
+</div>
+<h2>Medications</h2>
+<%= render @user.medications %>
