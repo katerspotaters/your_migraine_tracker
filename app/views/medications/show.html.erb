@@ -1,0 +1,15 @@
+
+<h1><%= @medication.name %></h1>
+
+<%= link_to "Edit Medication", edit_medication_path, class: 'btn btn-success' %>
+<%= link_to "Delete Medication", @medication, method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure you want to delete this medication?' } %>
+
+ <div class="row">
+   <div class="col-md-8">
+     <p class="lead"><%= @medication.name %></p>
+     <p><%= @medication.dosage_amount %> </p>
+     <p><%= @medication.dosage_measurement %> </p>
+     <p> <%= @medication.frequency_amount %> </p>
+     <p> <%= @medication.frequency_measurement %> </p>
+   </div>
+ </div>

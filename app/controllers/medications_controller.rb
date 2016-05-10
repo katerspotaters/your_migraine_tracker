@@ -1,6 +1,10 @@
 class MedicationsController < ApplicationController
  before_action :authenticate_user!
 
+  def show
+    @medication = Medication.find(params[:id])
+  end
+
   def new
      @user = User.find(current_user.id)
      @medication = Medication.new
@@ -13,7 +17,7 @@ class MedicationsController < ApplicationController
 
      if @medication.save
        flash[:notice] = "Medication was saved."
-       redirect_to medications_path
+       redirect_to user_path(current_user.id)
      else
        flash.now[:alert] = "There was an error saving the medication. Please try again."
        render :new
