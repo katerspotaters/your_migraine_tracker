@@ -37,24 +37,21 @@ RSpec.describe MedicationsController, type: :controller do
       medication_instance = assigns(:medication)
       expect(medication_instance.id).to eq(my_medication.id)
       expect(medication_instance.name).to eq(my_medication.name)
-      expect(medication_instance.body).to eq(my_medication.body)
     end
   end
 
   describe "PUT #update" do
     new_name = Faker::Lorem.sentence
-    new_body = Faker::Lorem.paragraph
     before do
-      put :update, user_id: user.id, id: my_medication.id, medication: {name: new_name, body: new_body}
+      put :update, user_id: user.id, id: my_medication.id, medication: {name: new_name}
     end
     it "updates medication with expected attributes" do
       updated_medication = assigns(:medication)
       expect(updated_medication.id).to eq(my_medication.id)
       expect(updated_medication.name).to eq(new_name)
-      expect(updated_medication.body).to eq(new_body)
     end
     it "redirects to the updated medication" do
-      expect(response).to redirect_to(my_medication)
+      expect(response).to redirect_to user_path
     end
   end
 
@@ -87,15 +84,15 @@ RSpec.describe MedicationsController, type: :controller do
 
   describe "POST #create" do
     it "increase the number of Medication by 1" do
-      expect{post :create, user_id: user.id, medication: {name: Faker::Lorem.sentence, body: Faker::Lorem.paragraph}}.to change(Medication, :count).by(1)
+      expect{post :create, user_id: user.id, medication: {name: Faker::Lorem.sentence}}.to change(Medication, :count).by(1)
     end
     it "assigns the new medication to @medication" do
-      post :create, user_id: user.id, medication: {name: Faker::Lorem.sentence, body: Faker::Lorem.paragraph}
+      post :create, user_id: user.id, medication: {name: Faker::Lorem.sentence}
       expect(assigns(:medication)).to eq(Medication.last)
     end
     it "redirects to the new medication" do
-      post :create, user_id: user.id, medication:{name: Faker::Lorem.sentence, body: Faker::Lorem.paragraph}
-      expect(response).to redirect_to Medication.last
+      post :create, user_id: user.id, medication:{name: Faker::Lorem.sentence}
+      expect(response).to redirect_to user_path(user.id)
     end
   end
 end
