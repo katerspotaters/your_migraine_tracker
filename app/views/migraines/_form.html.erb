@@ -1,0 +1,19 @@
+<%= form_for(@migraine) do |f| %>
+  <% if @migraine.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@migraine.errors.count, "error") %> prohibited this migraine from being saved:</h2>
+
+      <ul>
+      <% @migraine.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="form-group">
+    <%= f.label :intensity %>
+    <%= f.number_field :intensity, class: 'form-control', placeholder: "On a scale from 1 to 10, 10 being the worse migraine you've ever had how would you rate the intensity of your migraine?" %>
+  </div>
+    <%= f.submit %>
+  </div>
+<% end %>

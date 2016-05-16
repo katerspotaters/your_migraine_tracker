@@ -1,4 +1,4 @@
-<h1>Listing Medications</h1>
+<h1>Medication List</h1>
 
 <div class="table-responsive">
   <table class="table table-hover ">
@@ -16,3 +16,20 @@
 
     </div>
   </div>
+
+  <h1>Migraine Intensity List</h1>
+    <div class="table-responsive">
+      <table class = "table table-hover ">
+        <%= render @migraines %>
+      </table>
+    </div>
+    <div class="row">
+      <div class="col-md-8">
+        <div class="media">
+          <div class="media-body">
+            <h4 class "media-heading">
+              <%= link_to 'New', new_user_migraine_path %>
+            </div>
+          </div>
+        </div>
+      </div>
