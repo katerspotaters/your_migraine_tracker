@@ -27,7 +27,7 @@ class MigrainesController < ApplicationController
     @migraine = Migraine.find(params[:id])
 
     if @migraine.destroy
-      flash[:notice] = "#{@migraine.name} was deleted successfully."
+      flash[:notice] = "Migraine that happened at #{@migraine.occurrence_time} was deleted successfully."
        redirect_to user_path
     else
       flash.now[:alert] = "There was an error deleting the migraine."

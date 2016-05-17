@@ -10,7 +10,7 @@
     <div class="media">
       <div class="media-body">
         <h4 class "media-heading">
-          <%= link_to 'New', new_medication_path %>
+          <%= link_to 'New', new_user_medication_path(current_user.id) %>
         </div>
       </div>
 
@@ -28,7 +28,7 @@
         <div class="media">
           <div class="media-body">
             <h4 class "media-heading">
-              <%= link_to 'New', new_user_migraine_path %>
+              <%= link_to 'New', new_user_migraine_path(current_user.id) %>
             </div>
           </div>
         </div>

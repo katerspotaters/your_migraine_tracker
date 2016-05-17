@@ -15,8 +15,7 @@
            <li><%= link_to 'Edit profile', edit_user_registration_path %></li>
            <li><%= link_to "Home", welcome_index_path %></li>
            <li><%= link_to "About", welcome_about_path %></li>
-           <li><%= link_to "Medications", user_path(current_user.id) %></li>
-           <li><%= link_to "Migraines", user_migraines_path(current_user.id)%></li>
+           <li><%= link_to "Medications & Migraines", user_path(current_user.id) %></li>
            <li><%= link_to "Log Out", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
            <li><p class="navbar-text navbar-right">Signed in as: <strong><%= current_user.email %></strong></p></li>
          <% else %>
