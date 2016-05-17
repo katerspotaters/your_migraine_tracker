@@ -1,7 +1,7 @@
 class MigrainesController < ApplicationController
 
-  def index
-    @migraines = current_user.migraines
+  def show
+    @migraine = Migraine.find(params[:id])
   end
 
   def new

@@ -11,6 +11,6 @@ Rails.application.routes.draw do
 
   resources :users, only: :show do
     resources :medications, only: [:create, :edit, :destroy, :update, :new]
-    resources :migraines, only: [:create, :destroy, :new, :index]
+    resources :migraines, only: [:create, :destroy, :new]
   end
 end
