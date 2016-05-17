@@ -1,0 +1,28 @@
+<%= form_for(@survey) do |f| %>
+  <% if @survey.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@survey.errors.count, "error") %> prohibited this survey from being saved:</h2>
+
+      <ul>
+      <% @survey.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%=f.label :food %>
+    <%= f.select (:food, options_for_select([['yes', 'yes'], ['no', 'no']])) "Have you eaten today?" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :water %>
+    <%= f.number_field :water, class: 'form-control', placeholder: "How many glasses of water have you had today?" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :caffeine %>
+    <%= f.number_field :caffeine, class: 'form-control', placeholder: "How many cups of caffeine have you had today?" %>
+  </div>
+    <%= f.submit %>
+  </div>
+<% end %>

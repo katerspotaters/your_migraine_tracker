@@ -1,0 +1,8 @@
+<tbody>
+  <%= content_tag :tr, class: "info", id: "survey-#{survey.id}" do %>
+    <td><%= survey.food %></td>
+    <td> <%= survey.water %> </td>
+    <td> <%= survey.caffeine %> </td>
+    <td><%= link_to 'Show all', user_survey_path(survey) %></td>
+  <% end %>
+</tbody>
