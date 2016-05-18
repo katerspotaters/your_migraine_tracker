@@ -37,6 +37,9 @@ ActiveRecord::Schema.define(version: 20160517205928) do
   add_index "migraines", ["user_id"], name: "index_migraines_on_user_id"
 
   create_table "surveys", force: :cascade do |t|
+    t.string   "food"
+    t.integer  "water"
+    t.integer  "caffeine"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -1,9 +1,5 @@
 class MigrainesController < ApplicationController
 
-  def show
-    @migraine = Migraine.find(params[:id])
-  end
-
   def new
     @user = User.find(current_user.id)
     @migraine = Migraine.new
