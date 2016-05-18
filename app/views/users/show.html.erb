@@ -1,5 +1,4 @@
 <h1>Medication List</h1>
-
 <div class="table-responsive">
   <table class="table table-hover ">
     <%= render @medications %>
@@ -13,13 +12,12 @@
           <%= link_to 'New', new_user_medication_path(current_user.id) %>
         </div>
       </div>
-
     </div>
   </div>
 
   <h1>Migraine Intensity List</h1>
     <div class="table-responsive">
-      <table class = "table table-hover ">
+      <table class = "table table-hover">
         <%= render @migraines %>
       </table>
     </div>
@@ -33,3 +31,20 @@
           </div>
         </div>
       </div>
+
+      <h1>Surveys</h1>
+        <div class="table-responsive">
+          <table class = "table table-hover">
+            <%= render @surveys %>
+          </table>
+        </div>
+        <div class="row">
+          <div class="col-md-8">
+            <div class="media">
+              <div class="media-body">
+                <h4 class "media-heading">
+                  <%= link_to 'New', new_user_migraine_survey_path(current_migraine.id) %>
+                </div>
+              </div>
+            </div>
+          </div>
