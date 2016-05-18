@@ -4,6 +4,7 @@ class CreateSurveys < ActiveRecord::Migration
       t.string :food
       t.integer :water
       t.integer :caffeine
+      t.references :migraine, index: true, foreign_key: true
       t.timestamps null: false
     end
   end

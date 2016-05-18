@@ -40,9 +40,12 @@ ActiveRecord::Schema.define(version: 20160517205928) do
     t.string   "food"
     t.integer  "water"
     t.integer  "caffeine"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "migraine_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
+
+  add_index "surveys", ["migraine_id"], name: "index_surveys_on_migraine_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
