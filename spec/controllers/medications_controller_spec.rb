@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe MedicationsController, type: :controller do
   let(:user) { create(:user) }
   let(:my_medication) { create(:medication, user: user)}
+
   before do
     sign_in :user, user
   end

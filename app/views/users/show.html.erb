@@ -1,5 +1,4 @@
-<h1>Listing Medications</h1>
-
+<h1>Medication List</h1>
 <div class="table-responsive">
   <table class="table table-hover ">
     <%= render @medications %>
@@ -10,9 +9,30 @@
     <div class="media">
       <div class="media-body">
         <h4 class "media-heading">
-          <%= link_to 'New', new_medication_path %>
+          <%= link_to 'New', new_user_medication_path(current_user.id) %>
         </div>
       </div>
-
     </div>
   </div>
+
+  <h1>Migraine Intensity List</h1>
+    <div class="table-responsive">
+      <table class = "table table-hover">
+        <% @migraines.each do |migraine| %>
+          <%= render partial: "migraines/migraine",locals: { migraine: migraine } %>
+          <% migraine.surveys.each do |survey| %>
+            <%= render partial: "surveys/survey", locals: { survey: survey } %>
+          <% end %>
+        <% end %>
+      </table>
+    </div>
+    <div class="row">
+      <div class="col-md-8">
+        <div class="media">
+          <div class="media-body">
+            <h4 class "media-heading">
+              <%= link_to 'New', new_user_migraine_path(current_user.id) %>
+            </div>
+          </div>
+        </div>
+      </div>
