@@ -3,6 +3,6 @@
     <td><%= survey.food %></td>
     <td> <%= survey.water %> </td>
     <td> <%= survey.caffeine %> </td>
-    <td><%= link_to 'Delete', user_migraine_survey_path, method: :delete %></td>
+    <td><%= link_to 'Delete', user_migraine_survey_path(current_user, survey.migraine, survey), method: :delete %></td>
   <% end %>
 </tbody>

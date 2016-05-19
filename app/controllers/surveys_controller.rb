@@ -1,18 +1,18 @@
 class SurveysController < ApplicationController
 
   def new
-    @migraine = Migraine.find(current_migraine.id)
+    @user = current_user
+    @migraine = Migraine.find(params[:migraine_id])
     @survey = Survey.new
   end
 
   def create
-    @migraine = Migraine.find(current_migraine.id)
+    @migraine = Migraine.find(params[:migraine_id])
     @survey = @migraine.surveys.build(survey_params)
-    @survey.migraine = current_migraine
 
     if @survey.save
       flash[:notice] = "Survey was saved."
-      redirect_to migraine_path(current_migraine.id)
+      redirect_to user_path(current_user.id)
     else
       flash.now[:alert] = "There was an error saving the survey. Please try again."
       render :new
@@ -34,7 +34,7 @@ class SurveysController < ApplicationController
   private
 
   def survey_params
-    params.require(:survey).permit(:migraine_id, :intensity, :occurrence_time)
+    params.require(:survey).permit(:migraine_id, :food, :water, :caffeine)
   end
 
 end

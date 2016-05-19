@@ -5,6 +5,5 @@ class UsersController < ApplicationController
     @user = User.find(current_user.id)
     @medications = @user.medications
     @migraines = @user.migraines
-    @surveys = @user.surveys
    end
  end

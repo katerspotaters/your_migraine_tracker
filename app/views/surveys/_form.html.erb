@@ -1,4 +1,4 @@
-<%= form_for(@survey) do |f| %>
+<%= form_for [@user, @migraine, @survey] do |f| %>
   <% if @survey.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@survey.errors.count, "error") %> prohibited this survey from being saved:</h2>
@@ -13,7 +13,8 @@
 
   <div class="form-group">
     <%=f.label :food %>
-    <%= f.select (:food, options_for_select([['yes', 'yes'], ['no', 'no']])) "Have you eaten today?" %>
+    <%= f.text_field :food %>
+    <%#= f.select (:food, options_for_select([['yes', 'yes'], ['no', 'no']])) "Have you eaten today?" %>
   </div>
   <div class="form-group">
     <%= f.label :water %>

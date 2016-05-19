@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   resources :users, only: :show do
     resources :medications, only: [:create, :edit, :destroy, :update, :new]
     resources :migraines, only: [:create, :destroy, :new] do
-      resources :survey, only: [:create, :destroy, :new]
+      resources :surveys, only: [:create, :destroy, :new]
     end
   end
 end

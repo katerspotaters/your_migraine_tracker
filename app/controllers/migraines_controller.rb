@@ -10,7 +10,10 @@ class MigrainesController < ApplicationController
     @migraine = @user.migraines.build(migraine_params)
     @migraine.user = current_user
 
-    if @migraine.save
+    if @migraine.save && @migraine.intensity >= 7
+      flash[:notice] = "Because your migraine was a 7 or higher, we ask that you complete a survey that may help with your pain."
+      redirect_to new_user_migraine_survey_path(current_user.id, @migraine.id)
+    elsif @migraine.save && @migraine.intensity < 7
       flash[:notice] = "Migraine was saved."
       redirect_to user_path(current_user.id)
     else
