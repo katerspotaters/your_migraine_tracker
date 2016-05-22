@@ -2,7 +2,8 @@ require 'rails_helper'
 
 RSpec.describe SurveysController, type: :controller do
   let(:user) { create(:user) }
-  let(:my_survey) { create(:survey)}
+  let(:migraine) { create(:migraine, user: user)}
+  let(:my_survey) { create(:survey, migraine: migraine)}
 
   before do
     sign_in :user, user

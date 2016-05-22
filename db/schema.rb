@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20160518020312) do
     t.string   "name"
     t.integer  "dosage_amount"
     t.string   "dosage_measurement"
-    t.integer  "frequency_amount"
+    t.string   "frequency_amount"
     t.string   "frequency_measurement"
     t.integer  "user_id"
     t.datetime "created_at",            null: false

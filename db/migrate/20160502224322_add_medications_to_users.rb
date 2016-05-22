@@ -4,7 +4,7 @@ class AddMedicationsToUsers < ActiveRecord::Migration
       t.string :name
       t.integer :dosage_amount
       t.string :dosage_measurement
-      t.integer :frequency_amount
+      t.string :frequency_amount
       t.string :frequency_measurement
       t.references :user, index: true, foreign_key: true
       t.timestamps null: false

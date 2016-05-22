@@ -11,8 +11,12 @@ class SurveysController < ApplicationController
     @survey = @migraine.surveys.build(survey_params)
 
     if @survey.save
+      # @survey.save && @survey.food.downcase = "no"
+      # flash[:alert] = "Better grab some grub!"
       flash[:notice] = "Survey was saved."
       redirect_to user_path(current_user.id)
+    # elsif @survey.save && @survey.water
+    # elsif @survey.save
     else
       flash.now[:alert] = "There was an error saving the survey. Please try again."
       render :new

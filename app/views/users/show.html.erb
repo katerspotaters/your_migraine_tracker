@@ -1,7 +1,15 @@
 <h1>Medication List</h1>
 <div class="table-responsive">
   <table class="table table-hover ">
-    <%= render @medications %>
+    <thead>
+      <tr>
+        <th>Medication Name</th>
+        <th>Dosage</th>
+        <th> </th>
+        <th>Frequency</th>
+      </tr>
+    </thead>
+    <tbody> <%= render @medications %> </tbody>
   </table>
 </div>
 <div class="row">
@@ -18,12 +26,27 @@
   <h1>Migraine Intensity List</h1>
     <div class="table-responsive">
       <table class = "table table-hover">
-        <% @migraines.each do |migraine| %>
-          <%= render partial: "migraines/migraine",locals: { migraine: migraine } %>
-          <% migraine.surveys.each do |survey| %>
-            <%= render partial: "surveys/survey", locals: { survey: survey } %>
+          <% @migraines.each do |migraine| %>
+          <thead>
+            <tr>
+              <th>Migraine Occurrance</th>
+              <th>Migraine Intensity</th>
+            </tr>
+          </thead>
+          <tbody>
+            <%= render partial: "migraines/migraine",locals: { migraine: migraine } %>
+            <thead>
+              <tr>
+                <th>Food?</th>
+                <th>Glasses of Water</th>
+                <th>Cups of Caffeine</th>
+              </tr>
+            </thead>
+            <% migraine.surveys.each do |survey| %>
+              <%= render partial: "surveys/survey", locals: { survey: survey } %>
+            <% end %>
           <% end %>
-        <% end %>
+       </tbody>
       </table>
     </div>
     <div class="row">

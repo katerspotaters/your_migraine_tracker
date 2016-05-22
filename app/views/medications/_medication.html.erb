@@ -1,21 +1,10 @@
-<table>
-  <tr>
-    <th>Medication Name</th>
-    <th>Dosage</th>
-    <th>Frequency</th>
-  </tr>
-  <%= content_tag :tr, class: "info", id: "medication-#{medication.id}" do %>
-  <tr>
-    <td><%= medication.name %></td>
-    <td> <%= medication.dosage_amount %> </td>
-    <td> <%= medication.dosage_measurement %> </td>
-    <td> <%= medication.frequency_amount %> </td>
-    <td> <%= medication.frequency_measurement %> </td>
-  </tr>
-  <tr>
-    <td><%= link_to 'Show all', medication_path(medication) %></td>
-    <td><%= link_to 'Edit', edit_medication_path(medication)%></td>
-    <td><%= link_to 'Delete', [current_user, medication], method: :delete %></td>
-  </tr>
-  <% end %>
-</table>
+<%= content_tag :tr, class: "info", id: "medication-#{medication.id}" do %>
+  <td><%= medication.name %></td>
+  <td> <%= medication.dosage_amount %> </td>
+  <td> <%= medication.dosage_measurement %> </td>
+  <td> <%= medication.frequency_amount %> </td>
+  <td> <%= medication.frequency_measurement %> </td>
+  <td><%= link_to 'Show all', medication_path(medication) %></td>
+  <td><%= link_to 'Edit', edit_medication_path(medication)%></td>
+  <td><%= link_to 'Delete', [current_user, medication], method: :delete %></td>
+<% end %>
