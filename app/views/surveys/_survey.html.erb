@@ -1,8 +1,17 @@
-<tbody>
+<table>
+  <tr>
+    <th>Food?</th>
+    <th>Glasses of Water</th>
+    <th>Cups of Caffeine</th>
+  </tr>
   <%= content_tag :tr, class: "info", id: "survey-#{survey.id}" do %>
+  <tr>
     <td><%= survey.food %></td>
     <td> <%= survey.water %> </td>
     <td> <%= survey.caffeine %> </td>
+  </tr>
+  <tr>
     <td><%= link_to 'Delete', user_migraine_survey_path(current_user, survey.migraine, survey), method: :delete %></td>
+  </tr>
   <% end %>
 </tbody>

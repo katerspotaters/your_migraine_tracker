@@ -1,7 +1,15 @@
-<tbody>
+<table>
+  <tr>
+    <th>Migraine Occurrance</th>
+    <th>Migraine Intensity</th>
+  </tr>
   <%= content_tag :tr, class: "info", id: "migraine-#{migraine.id}" do %>
+  <tr>
     <td> <%= migraine.occurrence_time %> </td>
     <td><%= migraine.intensity %></td>
+  </tr>
+  <tr>
     <td><%= link_to 'Delete', [current_user, migraine], method: :delete %></td>
+  </tr>
   <% end %>
-</tbody>
+</table>
